@@ -22,26 +22,26 @@ minReadLength = 5000,6000,7000
 kmer = 16-20
 overlapper = zmo, dmo
 ```
-###Required Parameters
-####readsPath
+### Required Parameters
+#### readsPath
   absolute or relative path to input reads file
-####quastDir
+#### quastDir
   directory name to be made for storage of results
 
-###Optional Parameters
-####prefix
+### Optional Parameters
+#### prefix
   for naming purposes
-####threads
+#### threads
   number of threads to be used [<int>]
-####email
+#### email
   for slurm notifications
-####minReadLength
+#### minReadLength
   minimum read length to be considered [<int>]
-####kmer
+#### kmer
   kmer size [<int>]
-####overlapper
+#### overlapper
   engine of overlapper. [zmo, dmo]
-###Output
+### Output
   The output can be seen in assembly_summary.txt.
   Columns are the different combination of parameters and 
   rows are the metrics provided by Quast.

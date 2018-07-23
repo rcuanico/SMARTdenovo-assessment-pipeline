@@ -7,8 +7,8 @@ USAGE:
 /path/to/SMARTAsses.py <config>
 ```
 The configuration file is where all unique and variable parameters are placed.
-Sample configuration file is included for reference.
-Comments start with a hash (#)
+Sample configuration file is included as reference.
+_Whole line comments_ start with a hash (#) and are ignored in parsing.
 ```
 # UNIQUE VALUE ========
 prefix = my_assembly
@@ -32,13 +32,13 @@ overlapper = zmo, dmo
 #### prefix
   for naming purposes
 #### threads
-  number of threads to be used [<int>]
+  number of threads to be used [_int_]
 #### email
   for slurm notifications
 #### minReadLength
-  minimum read length to be considered [<int>]
+  minimum read length to be considered [_int_]
 #### kmer
-  kmer size [<int>]
+  kmer size [_int_]
 #### overlapper
   engine of overlapper. [zmo, dmo]
 ### Output

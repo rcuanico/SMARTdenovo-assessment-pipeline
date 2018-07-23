@@ -40,8 +40,8 @@ overlapper = zmo, dmo
 #### kmer
   kmer size [_int_]
 #### overlapper
-  engine of overlapper. [zmo, dmo]
+  engine of overlapper [zmo, dmo]
 ### Output
-  The output can be seen in assembly_summary.txt.
+  The output can be seen in ```assembly_summary.txt```.
   Columns are the different combination of parameters and 
   rows are the metrics provided by Quast.

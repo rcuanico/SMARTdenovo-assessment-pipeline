@@ -1,0 +1,11 @@
+# UNIQUE VALUE
+prefix = my_assembly
+threads = 8
+email = me@gmail.com
+readsPath = /path/to/reads/file.fa
+quastDir = my_results
+
+# VARIABLE
+minReadLength = 5000,6000,7000
+kmer =16-18
+overlapper = zmo, dmo

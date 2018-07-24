@@ -1,6 +1,6 @@
 '''
-Python script for combining all the Quast relults into single text file.
-It reads necessary information in .filenames
+Python script for combining all the Quast results into single text file to be named 'BENCHMARKING_SUMMARY.txt'.
+It reads necessary information from a hidden file '.filenames' written by the SMARTAssess.py.
 '''
 
 # Read necessary information on filename of results ===
@@ -9,11 +9,11 @@ try:
 		nameList = names.readlines()
 		quastDir = nameList.pop(0).strip()
 except IOError as e:
-	print("Error: Reading filenames.")
+	print("Error: Reading filenames from SMARTAsses.py.")
 
 # Start aggregating the results into one file ==========
-summary = open('assembly_summary.txt', 'w')
-# Matrix to store all info
+summary = open('BECHMARKING_SUMMARY.txt', 'w')
+# Matrix to store all info before writing
 matrix = []
 # Write Headers
 summary.write('ASSEMBLY\t\t\t\t')
@@ -30,9 +30,9 @@ data = []
 for name in nameList:
 	file = open(quastDir+'/result_'+name.strip()+'/report.txt', 'r')
 	lines = file.readlines()
-	del lines[:3]	# remove first two lines of report
+	del lines[:3]	# remove first three lines of report
 	for l in lines:
-		data.append(l.split()[-1])
+		data.append(l.split()[-1])	# get the values
 	file.close()
 	matrix.append(data.copy())
 	data.clear()
@@ -56,3 +56,4 @@ for col in range(0,21):
 	summary.write('\n')
 
 summary.close()
+

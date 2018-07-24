@@ -13,7 +13,7 @@
 
 	CONFIGURATION FILE:
 		[ UNIQUE VALUE ]
-		prefix		threads
+		prefix		threads		quastDir
 		email		readsPath
 
 		[ VARIABLE ]
@@ -21,7 +21,6 @@
 		overlapper
 
 	EXTRA to implement
-		- avoid repetitive values in each list
 		- reversed range (i.e. N-n where N>n)
 '''
 
@@ -30,7 +29,7 @@ import sys
 import re
 
 '''
-Parses a configuration file into a dictionary.
+Parse a configuration file into a dictionary.
 Key: parameter
 Value: list of values
 '''
@@ -61,6 +60,10 @@ def parseConfig():
 		print("USAGE: python main.py <config_file>")
 
 # MAIN ==========================================================================
+if len(sys.argv) < 2:
+	print("USAGE: python main.py <config_file>")	
+	exit()
+
 configDict = parseConfig()
 if configDict is None:
 	print('Unable to read configuration file!')
@@ -111,7 +114,7 @@ os.chdir(configDict['prefix'][0]+str(ctr))		# cd <folder_created>
 os.system('mkdir '+configDict['quastDir'][0]) != 0
 
 fileNames = []		# where to store the file names
-					# Format: <prefix>[_PARAMvalue]...[_PARAMvalue].slurm
+			# Format: <prefix>[_PARAMvalue]...[_PARAMvalue].slurm
 
 # ITERATION over the parameters ----------------------------------
 for km in configDict['kmer']:
@@ -191,7 +194,8 @@ if withEmail:
 slurmParser.write('\n')
 slurmParser.write('module load anaconda2/4.2.0')
 slurmParser.write('\n')
-slurmParser.write('python3 ../integrate_result.py')
+slurmParser.write('python3 ../'+sys.argv[0][0:-14]+'integrate_result.py\n')
 slurmParser.close()
 
 os.system('sbatch --dependency=singleton resultParser.slurm')
+

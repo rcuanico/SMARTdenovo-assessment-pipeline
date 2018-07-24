@@ -57,16 +57,16 @@ def parseConfig():
 				params[key.strip()] = newVals
 		return params
 	except IOError as e:
-		print("USAGE: python main.py <config_file>")
+		print("USAGE: python3 path/to/SMARTAssess.py <config_file>")
 
 # MAIN ==========================================================================
 if len(sys.argv) < 2:
-	print("USAGE: python main.py <config_file>")	
+	print("USAGE: python3 path/to/SMARTAssess.py <config_file>")	
 	exit()
 
 configDict = parseConfig()
 if configDict is None:
-	print('Unable to read configuration file!')
+	print('Unable to read the configuration file!')
 	exit()
 
 # set FLAGS for the presence of parameters -------------------
@@ -172,10 +172,10 @@ for file in fileNames:
 # Write the list of filenames into text
 # so that it will be accessible to the python script
 # that integrates all the quast result.
-fNames = open('filenames.txt')
-configDict['quastDir'][0]
+fNames = open('.filenames', 'w')
+fNames.write(configDict['quastDir'][0]+'\n')
 for f in fileNames:
-	fnames.write(f+'\n')
+	fNames.write(f+'\n')
 
 # Write slurm file that calls the integrate_result.py
 # with the dependency of finished assembly and analysis

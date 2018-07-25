@@ -10,15 +10,15 @@ The configuration file is where all unique and variable parameters are placed.
 Sample configuration file is included as reference.
 _Whole line comments_ start with a hash (#) and are ignored in parsing.
 ```
-# UNIQUE VALUE ========
+# UNIQUE VALUE
 prefix = my_assembly
 threads = 8
-email = me@gmail.com
+email = me@irri.org
 readsPath = /path/to/reads/file.fa
-quastDir = my_results
+quastDir = my_quast_results
 
 # VARIABLE ============
-minReadLength = 5000,6000,7000
+minReadLength = 5000,5050,6000
 kmer = 16-20
 overlapper = zmo, dmo
 ```

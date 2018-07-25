@@ -1,11 +1,11 @@
 # UNIQUE VALUE
 prefix = my_assembly
 threads = 8
-email = me@gmail.com
+email = me@irri.org
 readsPath = /path/to/reads/file.fa
-quastDir = my_results
+quastDir = my_quast_results
 
 # VARIABLE
-minReadLength = 5000,6000,7000
+minReadLength = 5000,5050,6000
 kmer =16-18
 overlapper = zmo, dmo

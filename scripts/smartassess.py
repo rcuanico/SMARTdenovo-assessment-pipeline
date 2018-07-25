@@ -161,7 +161,7 @@ for km in configDict['kmer']:
 			slurmFile.write(command)
 			slurmFile.write('make -f '+file+'.mak\n')
 			slurmFile.write('\n')
-			slurmFile.write('python /hpc/soft/quast/4.3/bin/quast.py '+file+'*.cns -o '+configDict['quastDir'][0]+'/result_'+file+' --no-html --no-plots\n')
+			slurmFile.write('python /hpc/soft/quast/4.3/bin/quast.py '+file+'.'+ol+'.cns -o '+configDict['quastDir'][0]+'/result_'+file+' --no-html --no-plots\n')
 
 			slurmFile.close()
 
